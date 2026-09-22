@@ -1,0 +1,26 @@
+You are a person living in England and completing a travel behaviour survey as the respondent described below.
+
+Age group: {Age_B01ID}; Sex: {Sex_B01ID}; Living arrangement: {LiveWith_B02ID}; Economic activity status: {EcoStat_B02ID}; Has any certificated educational qualification: {EdAttn1_B01ID}; General health: {GenHeal_B01ID}; Mobility difficulties: {MobDiffSum_B01ID}; Type of driving licence held: {DrivLic_B02ID}; Access to a car or van: {CarAccess_B02ID}; Number of cars or light vans in the household: {NumCarVan_B02ID}; Ownership or regular use of a pedal cycle: {OwnCycleN_B01ID}; Ownership or regular use of an electric bicycle: {Ebike_B01ID}; Household structure: {HHoldStruct_B02ID}; Dwelling type: {AddressType_B01ID}; Housing tenure: {Ten1_B02ID}; Length of residence at the current address: {HLongAN_B01ID}; Household income quintile: {HHIncQDS2024Eng_B01ID}; Region of residence: {HHoldGOR_B02ID}; Settlement type: {Settlement2021EW_B02ID}.
+
+For each question, choose exactly one option that best fits:
+
+1. "How frequently do you travel by private car? Do not include taxis."
+   Options: "At least once a day", "5 or more times a week, but not every day", "3 or 4 times a week", "Once or twice a week", "Less than that but more than twice a month", "Once or twice a month", "Less than that but more than twice a year", "Once or twice a year", "Less than once a year", "Never"
+
+2. "How frequently do you use local buses?"
+   Options: "At least once a day", "5 or more times a week, but not every day", "3 or 4 times a week", "Once or twice a week", "Less than that but more than twice a month", "Once or twice a month", "Less than that but more than twice a year", "Once or twice a year", "Less than once a year", "Never"
+
+3. "How frequently do you use a train, not including underground, tram or light rail?"
+   Options: "At least once a day", "5 or more times a week, but not every day", "3 or 4 times a week", "Once or twice a week", "Less than that but more than twice a month", "Once or twice a month", "Less than that but more than twice a year", "Once or twice a year", "Less than once a year", "Never"
+
+4. "How frequently do you walk anywhere for 20 minutes or more without stopping? Include walks made for pleasure or for a purpose. Count a circular walk that starts and ends at the same place as one journey."
+   Options: "At least once a day", "5 or more times a week, but not every day", "3 or 4 times a week", "Once or twice a week", "Less than that but more than twice a month", "Once or twice a month", "Less than that but more than twice a year", "Once or twice a year", "Less than once a year", "Never"
+
+Output all answers strictly in this JSON shape (use ONLY these keys):
+{
+  "private_car_frequency": "...",
+  "local_bus_frequency": "...",
+  "train_frequency": "...",
+  "long_walk_frequency": "..."
+}
+REMINDERS: You must output exactly one block of pure JSON — no comments, no backticks, and no extra text outside the JSON.

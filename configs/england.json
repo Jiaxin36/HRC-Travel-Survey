@@ -1,0 +1,272 @@
+{
+  "columns": {
+    "id_col": "agent_id",
+    "stratify_col": "HHoldGOR_B02ID",
+    "condition_categorical": [
+      "Age_B01ID",
+      "Sex_B01ID",
+      "LiveWith_B02ID",
+      "EcoStat_B02ID",
+      "EdAttn1_B01ID",
+      "GenHeal_B01ID",
+      "MobDiffSum_B01ID",
+      "DrivLic_B02ID",
+      "CarAccess_B02ID",
+      "OwnCycleN_B01ID",
+      "Ebike_B01ID",
+      "HHoldStruct_B02ID",
+      "AddressType_B01ID",
+      "Ten1_B02ID",
+      "HLongAN_B01ID",
+      "NumCarVan_B02ID",
+      "HHIncQDS2024Eng_B01ID",
+      "HHoldGOR_B02ID",
+      "Settlement2021EW_B02ID"
+    ],
+    "condition_numeric": [],
+    "outcome_categorical": [
+      "PrivCar2_B01ID",
+      "OrdBus2Freq_B01ID",
+      "Train2Freq_B01ID",
+      "Walk2Freq_B01ID"
+    ],
+    "outcome_numeric": [],
+    "metric_ordered": [
+      "PrivCar2_B01ID",
+      "OrdBus2Freq_B01ID",
+      "Train2Freq_B01ID",
+      "Walk2Freq_B01ID"
+    ],
+    "metric_nominal": []
+  },
+  "model": {
+    "hidden_dim": 128,
+    "latent_dim": 16,
+    "learning_rate": 0.001,
+    "epochs": 60,
+    "batch_size": 128,
+    "kl_weight": 0.1,
+    "categorical_sampling": "argmax"
+  },
+  "calibration": {
+    "gamma": 0.5,
+    "candidate_pool_size": 128,
+    "score_scaling": "rank",
+    "temperature": 1.0,
+    "posterior_mean_for_human_score": false
+  },
+  "response_schema": [
+    {
+      "qid": "private_car_frequency",
+      "source_variable": "PrivCar2_B01ID",
+      "answer_codes": {
+        "At least once a day": 1,
+        "5 or more times a week, but not every day": 2,
+        "3 or 4 times a week": 3,
+        "Once or twice a week": 4,
+        "Less than that but more than twice a month": 5,
+        "Once or twice a month": 6,
+        "Less than that but more than twice a year": 7,
+        "Once or twice a year": 8,
+        "Less than once a year": 9,
+        "Never": 10
+      }
+    },
+    {
+      "qid": "local_bus_frequency",
+      "source_variable": "OrdBus2Freq_B01ID",
+      "answer_codes": {
+        "At least once a day": 1,
+        "5 or more times a week, but not every day": 2,
+        "3 or 4 times a week": 3,
+        "Once or twice a week": 4,
+        "Less than that but more than twice a month": 5,
+        "Once or twice a month": 6,
+        "Less than that but more than twice a year": 7,
+        "Once or twice a year": 8,
+        "Less than once a year": 9,
+        "Never": 10
+      }
+    },
+    {
+      "qid": "train_frequency",
+      "source_variable": "Train2Freq_B01ID",
+      "answer_codes": {
+        "At least once a day": 1,
+        "5 or more times a week, but not every day": 2,
+        "3 or 4 times a week": 3,
+        "Once or twice a week": 4,
+        "Less than that but more than twice a month": 5,
+        "Once or twice a month": 6,
+        "Less than that but more than twice a year": 7,
+        "Once or twice a year": 8,
+        "Less than once a year": 9,
+        "Never": 10
+      }
+    },
+    {
+      "qid": "long_walk_frequency",
+      "source_variable": "Walk2Freq_B01ID",
+      "answer_codes": {
+        "At least once a day": 1,
+        "5 or more times a week, but not every day": 2,
+        "3 or 4 times a week": 3,
+        "Once or twice a week": 4,
+        "Less than that but more than twice a month": 5,
+        "Once or twice a month": 6,
+        "Less than that but more than twice a year": 7,
+        "Once or twice a year": 8,
+        "Less than once a year": 9,
+        "Never": 10
+      }
+    }
+  ],
+  "profile_labels": {
+    "Age_B01ID": {
+      "1": "Under 16 years",
+      "2": "Under 16 years",
+      "3": "Under 16 years",
+      "4": "Under 16 years",
+      "5": "Under 16 years",
+      "6": "16 - 20 years",
+      "7": "16 - 20 years",
+      "8": "16 - 20 years",
+      "9": "16 - 20 years",
+      "10": "16 - 20 years",
+      "11": "21 - 29 years",
+      "12": "21 - 29 years",
+      "13": "30 - 39 years",
+      "14": "40 - 49 years",
+      "15": "50 - 59 years",
+      "16": "60 - 69 years",
+      "17": "60 - 69 years",
+      "18": "70 - 79 years",
+      "19": "70 - 79 years",
+      "20": "80 years or older",
+      "21": "80 years or older"
+    },
+    "Sex_B01ID": {
+      "1": "Male",
+      "2": "Female"
+    },
+    "LiveWith_B02ID": {
+      "1": "Married",
+      "2": "Cohabiting",
+      "3": "Single",
+      "4": "Separated or divorced",
+      "5": "Widowed"
+    },
+    "EcoStat_B02ID": {
+      "1": "Full Time",
+      "2": "Part Time",
+      "3": "Unemployed",
+      "4": "Economically inactive: Permanent (retired, sick, disabled)",
+      "5": "Economically inactive: Student",
+      "6": "Economically inactive: Other"
+    },
+    "EdAttn1_B01ID": {
+      "1": "Yes",
+      "2": "No"
+    },
+    "GenHeal_B01ID": {
+      "1": "Very good",
+      "2": "Good",
+      "3": "Fair",
+      "4": "Bad",
+      "5": "Very bad"
+    },
+    "MobDiffSum_B01ID": {
+      "1": "No difficulties",
+      "2": "Foot + Bus + Car",
+      "3": "Foot + Bus",
+      "4": "Foot + Car",
+      "5": "Bus + Car",
+      "6": "Foot only",
+      "7": "Bus only",
+      "8": "Car only"
+    },
+    "DrivLic_B02ID": {
+      "1": "Full car driving licence",
+      "2": "Provisional car driving licence",
+      "3": "Other licence or no car driving licence"
+    },
+    "CarAccess_B02ID": {
+      "1": "With a car / van - main driver",
+      "2": "With a car / van - other driver",
+      "3": "With a car / van - non driver",
+      "4": "Without car / van"
+    },
+    "OwnCycleN_B01ID": {
+      "1": "Own a pedal cycle",
+      "2": "Have regular use of a pedal cycle owned by someone else",
+      "3": "Have no regular use of a pedal cycle"
+    },
+    "Ebike_B01ID": {
+      "1": "Yes, I own one",
+      "2": "Yes, I have regular use of one",
+      "3": "No"
+    },
+    "HHoldStruct_B02ID": {
+      "1": "Single adult",
+      "2": "2 adults",
+      "3": "3 adults or more",
+      "4": "Single parent family",
+      "5": "2 adults, 1 child or more",
+      "6": "3 adults or more, 1 child or more"
+    },
+    "AddressType_B01ID": {
+      "1": "Detached house or bungalow",
+      "2": "Semi-detached house or bungalow",
+      "3": "Terraced or end-terrace house or bungalow",
+      "4": "House or bungalow, type unknown",
+      "5": "Purpose-built flat or maisonette",
+      "6": "Non-purpose-built flat or maisonette",
+      "7": "Flat or maisonette, type unknown",
+      "8": "Other accommodation type"
+    },
+    "Ten1_B02ID": {
+      "1": "Owns / buying",
+      "2": "Rents",
+      "3": "Other (including rent free)"
+    },
+    "HLongAN_B01ID": {
+      "1": "Less than 12 months",
+      "2": "12 months but less than 2 years",
+      "3": "2 years but less than 3 years",
+      "4": "3 years but less than 5 years",
+      "5": "5 years but less than 10 years",
+      "6": "10 years but less than 20 years",
+      "7": "20 years or longer"
+    },
+    "NumCarVan_B02ID": {
+      "1": "None",
+      "2": "One",
+      "3": "Two or more"
+    },
+    "HHIncQDS2024Eng_B01ID": {
+      "1": "1st (lowest) household income quintile",
+      "2": "2nd household income quintile",
+      "3": "3rd household income quintile",
+      "4": "4th household income quintile",
+      "5": "5th (highest) household income quintile"
+    },
+    "HHoldGOR_B02ID": {
+      "1": "North East",
+      "2": "North West",
+      "3": "Yorkshire and the Humber",
+      "4": "East Midlands",
+      "5": "West Midlands",
+      "6": "East of England",
+      "7": "London",
+      "8": "South East",
+      "9": "South West",
+      "10": "Wales",
+      "11": "Scotland"
+    },
+    "Settlement2021EW_B02ID": {
+      "1": "Smaller rural",
+      "2": "Larger rural",
+      "3": "Urban"
+    }
+  }
+}

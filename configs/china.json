@@ -1,0 +1,237 @@
+{
+  "columns": {
+    "id_col": "agent_id",
+    "stratify_col": "resi_prov",
+    "condition_categorical": [
+      "resi_city_en",
+      "male",
+      "deformity",
+      "physical_health_",
+      "house_owner",
+      "hukou_local",
+      "education_",
+      "employment",
+      "married",
+      "children_num",
+      "household_income_",
+      "driver_license",
+      "car_ownership",
+      "ebike_ownership",
+      "bike_ownership",
+      "shopping_distance",
+      "service_distance",
+      "leisure_distance"
+    ],
+    "condition_numeric": [
+      "age",
+      "bmi",
+      "resi_time",
+      "household_size",
+      "shopping_time",
+      "leisure_time",
+      "service_time"
+    ],
+    "outcome_categorical": [
+      "shopping_frequency",
+      "leisure_frequency",
+      "service_frequency",
+      "shopping_mode",
+      "leisure_mode",
+      "service_mode"
+    ],
+    "outcome_numeric": [],
+    "metric_ordered": [
+      "shopping_frequency",
+      "leisure_frequency",
+      "service_frequency"
+    ],
+    "metric_nominal": [
+      "shopping_mode",
+      "leisure_mode",
+      "service_mode"
+    ]
+  },
+  "model": {
+    "hidden_dim": 128,
+    "latent_dim": 16,
+    "learning_rate": 0.001,
+    "epochs": 60,
+    "batch_size": 128,
+    "kl_weight": 0.1,
+    "categorical_sampling": "argmax"
+  },
+  "calibration": {
+    "gamma": 0.5,
+    "candidate_pool_size": 128,
+    "score_scaling": "rank",
+    "temperature": 1.0,
+    "posterior_mean_for_human_score": false
+  },
+  "response_schema": [
+    {
+      "qid": "shopping_frequency",
+      "source_variable": "shopping_frequency",
+      "answer_codes": {
+        "Never": 1,
+        "Once a month": 2,
+        "Once every two weeks": 3,
+        "Once a week": 4,
+        "2-4 times a week": 5,
+        "5+ times a week": 6
+      }
+    },
+    {
+      "qid": "leisure_frequency",
+      "source_variable": "leisure_frequency",
+      "answer_codes": {
+        "Never": 1,
+        "Once a month": 2,
+        "Once every two weeks": 3,
+        "Once a week": 4,
+        "2-4 times a week": 5,
+        "5+ times a week": 6
+      }
+    },
+    {
+      "qid": "service_frequency",
+      "source_variable": "service_frequency",
+      "answer_codes": {
+        "Never": 1,
+        "Once a month": 2,
+        "Once every two weeks": 3,
+        "Once a week": 4,
+        "2-4 times a week": 5,
+        "5+ times a week": 6
+      }
+    },
+    {
+      "qid": "shopping_mode",
+      "source_variable": "shopping_mode",
+      "answer_codes": {
+        "Private car": 1,
+        "Ride-hailing/Taxi": 2,
+        "Bus/Subway": 3,
+        "Motorcycle/Electric bicycle": 4,
+        "Private bicycle": 5,
+        "Shared bicycle": 6,
+        "Walking": 7
+      }
+    },
+    {
+      "qid": "leisure_mode",
+      "source_variable": "leisure_mode",
+      "answer_codes": {
+        "Private car": 1,
+        "Ride-hailing/Taxi": 2,
+        "Bus/Subway": 3,
+        "Motorcycle/Electric bicycle": 4,
+        "Private bicycle": 5,
+        "Shared bicycle": 6,
+        "Walking": 7
+      }
+    },
+    {
+      "qid": "service_mode",
+      "source_variable": "service_mode",
+      "answer_codes": {
+        "Private car": 1,
+        "Ride-hailing/Taxi": 2,
+        "Bus/Subway": 3,
+        "Motorcycle/Electric bicycle": 4,
+        "Private bicycle": 5,
+        "Shared bicycle": 6,
+        "Walking": 7
+      }
+    }
+  ],
+  "profile_labels": {
+    "children_num": {
+      "0": "No children",
+      "1": "One",
+      "2": "Two",
+      "3": "Three or more"
+    },
+    "education_": {
+      "1": "Primary education",
+      "2": "Secondary education",
+      "3": "Higher education"
+    },
+    "employment": {
+      "1": "Employed",
+      "2": "Unemployed",
+      "3": "Retired"
+    },
+    "physical_health_": {
+      "1": "Unhealthy",
+      "2": "Somewhat unhealthy",
+      "3": "Somewhat healthy",
+      "4": "Healthy"
+    },
+    "household_income_": {
+      "1": "Less than 49,999 CNY",
+      "2": "50,000 to 99,999 CNY",
+      "3": "100,000 to 249,999 CNY",
+      "4": "More than 250,000 CNY"
+    },
+    "shopping_distance": {
+      "1": "Within 1 km",
+      "2": "1 km to under 3 km",
+      "3": "3 km to under 5 km",
+      "4": "5 km to under 10 km",
+      "5": "10 km to under 20 km",
+      "6": "20 km or more"
+    },
+    "service_distance": {
+      "1": "Within 1 km",
+      "2": "1 km to under 3 km",
+      "3": "3 km to under 5 km",
+      "4": "5 km to under 10 km",
+      "5": "10 km to under 20 km",
+      "6": "20 km or more"
+    },
+    "leisure_distance": {
+      "1": "Within 1 km",
+      "2": "1 km to under 3 km",
+      "3": "3 km to under 5 km",
+      "4": "5 km to under 10 km",
+      "5": "10 km to under 20 km",
+      "6": "20 km or more"
+    },
+    "deformity": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "driver_license": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "car_ownership": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "ebike_ownership": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "bike_ownership": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "male": {
+      "0": "Female",
+      "1": "Male"
+    },
+    "hukou_local": {
+      "0": "Non-local",
+      "1": "Local"
+    },
+    "house_owner": {
+      "0": "Rented/Other",
+      "1": "Owner-occupied"
+    },
+    "married": {
+      "0": "Single/Divorced/Widowed",
+      "1": "Married"
+    }
+  }
+}

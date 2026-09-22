@@ -1,0 +1,57 @@
+{
+  "train_size": 600,
+  "base_seeds": [
+    11,
+    29,
+    42,
+    71,
+    101
+  ],
+  "gamma_selection_smoothness": {
+    "gamma_values": [
+      0.0,
+      0.25,
+      0.5,
+      0.75,
+      1.0
+    ],
+    "selection_smoothness_values": [
+      0.5,
+      0.75,
+      1.0,
+      1.25,
+      1.5
+    ]
+  },
+  "candidate_pool": {
+    "values": [
+      32,
+      64,
+      128,
+      256
+    ],
+    "nested_prefix_design": true
+  },
+  "tvae_ofat": {
+    "default": {
+      "hidden_dim": 128,
+      "latent_dim": 16,
+      "epochs": 60
+    },
+    "hidden_dim_values": [
+      64,
+      128,
+      256
+    ],
+    "latent_dim_values": [
+      8,
+      16,
+      32
+    ],
+    "epochs_values": [
+      40,
+      60,
+      80
+    ]
+  }
+}

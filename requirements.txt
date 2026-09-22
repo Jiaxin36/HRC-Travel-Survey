@@ -1,0 +1,6 @@
+# Required direct dependencies for the public CPU workflow (Python 3.12).
+numpy==2.2.6
+pandas==2.2.3
+scipy==1.15.3
+scikit-learn==1.6.1
+torch==2.7.1
